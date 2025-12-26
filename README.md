@@ -1,6 +1,7 @@
 # LeetCode
 
-Daily Data Structures & Algorithms practice using **C++**.
+
+Data Structures & Algorithms practice using **C++**.
 
 ## 📌 Topics
 - Arrays
