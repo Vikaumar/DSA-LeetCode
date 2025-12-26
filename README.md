@@ -1,4 +1,4 @@
-# DSA LeetCode Practice
+# LeetCode Practice
 
 Daily Data Structures & Algorithms practice using **C++**.
 
