@@ -1,4 +1,4 @@
 # LeetCode
 
 
-## 🎯 Goal
+## 🎯 
