@@ -1,3 +1,10 @@
+// LeetCode 2483. Minimum Penalty for a Shop
+// Approach: Prefix Suffix Sums
+// Time: O(n)
+// Space: O(n)
+#include <bits/stdc++.h>
+using namespace std;
+
 class Solution {
 public:
     int bestClosingTime(string cus) {
