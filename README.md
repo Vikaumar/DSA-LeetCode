@@ -1,8 +1,5 @@
 # LeetCode
 
-
-Data Structures & Algorithms
-
 ## 📌 Topics
 - Arrays
 - Strings
