@@ -53,7 +53,7 @@ public:
             {
                 auto p = busyRooms.top();
                 busyRooms.pop();
-
+                
                 long long freeTime = p.first;
                 int room = p.second;
 
