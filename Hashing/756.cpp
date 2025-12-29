@@ -5,8 +5,6 @@ Approach:
 - Use DFS + Backtracking to build the pyramid from bottom to top.
 - Use a map to store allowed transitions.
 - Use memoization to avoid recomputation of the same states.
-
-Author: <your-name>
 */
 
 #include <bits/stdc++.h>
