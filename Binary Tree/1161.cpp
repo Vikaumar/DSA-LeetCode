@@ -1,12 +1,10 @@
 // =======================================================
 // LeetCode 1161. Maximum Level Sum of a Binary Tree
 // -------------------------------------------------------
-// Approach (Simple Explanation):
-//   - Traverse the tree level by level using BFS
-//   - For each level, calculate the sum of node values
-//   - Keep track of the maximum sum seen so far
-//   - Return the level number (1-indexed) having the maximum sum
-//   - If multiple levels have the same sum, the earliest level is chosen
+// Approach:
+//   Use Breadth-First Search (Level Order Traversal)
+//   Compute sum of each level and track the level
+//   having the maximum sum (1-indexed)
 //
 // Time Complexity: O(n)
 // Space Complexity: O(n)
@@ -14,6 +12,16 @@
 
 #include <bits/stdc++.h>
 using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *l, TreeNode *r) : val(x), left(l), right(r) {}
+};
 
 class Solution {
 public:
