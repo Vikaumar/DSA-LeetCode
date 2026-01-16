@@ -14,38 +14,37 @@ using namespace std;
 
 class Solution {
 public:
-    static constexpr int MOD = 1000000007;
+    static const int MOD = 1000000007;
 
     int maximizeSquareArea(int m, int n,
-                            vector<int>& hFences,
-                            vector<int>& vFences) {
-        // Helper: get all possible distances between fence pairs
-        auto getGaps = [&](vector<int>& fences, int boundary) {
-            fences.push_back(1);
-            fences.push_back(boundary);
-            sort(fences.begin(), fences.end());
+                           vector<int>& hFences,
+                           vector<int>& vFences) {
 
-            unordered_set<int> gaps;
-            int sz = fences.size();
-            for (int i = 0; i < sz; ++i) {
-                for (int j = 0; j < i; ++j) {
-                    gaps.insert(fences[i] - fences[j]);
+        auto getDistances = [&](vector<int>& f, int limit) {
+            f.push_back(1);
+            f.push_back(limit);
+            sort(f.begin(), f.end());
+
+            unordered_set<int> d;
+            for (int i = 0; i < f.size(); i++) {
+                for (int j = 0; j < i; j++) {
+                    d.insert(f[i] - f[j]);
                 }
             }
-            return gaps;
+            return d;
         };
 
-        auto hGaps = getGaps(hFences, m);
-        auto vGaps = getGaps(vFences, n);
+        auto hDist = getDistances(hFences, m);
+        auto vDist = getDistances(vFences, n);
 
-        long long maxSide = -1;
-        for (int dist : hGaps) {
-            if (vGaps.count(dist)) {
-                maxSide = max(maxSide, (long long)dist);
+        long long best = -1;
+        for (int x : hDist) {
+            if (vDist.count(x)) {
+                best = max(best, (long long)x);
             }
         }
 
-        if (maxSide <= 0) return -1;
-        return (int)((maxSide * maxSide) % MOD);
+        if (best == -1) return -1;
+        return (best * best) % MOD;
     }
 };
