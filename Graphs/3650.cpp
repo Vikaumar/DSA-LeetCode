@@ -20,12 +20,15 @@ using namespace std;
  O(n + m)
 */
 
-class Solution {
+class Solution
+{
 public:
-    int minCost(int n, vector<vector<int>>& edges) {
+    int minCost(int n, vector<vector<int>> &edges)
+    {
         vector<vector<pair<int, long long>>> adj(n);
 
-        for (auto &e : edges) {
+        for (auto &e : edges)
+        {
             int u = e[0], v = e[1], w = e[2];
             adj[u].push_back({v, w});
             adj[v].push_back({u, 2LL * w});
@@ -35,21 +38,32 @@ public:
         priority_queue<
             pair<long long, int>,
             vector<pair<long long, int>>,
-            greater<>
-        > pq;
+            greater<>>
+            pq;
 
         dist[0] = 0;
         pq.push({0, 0});
 
-        while (!pq.empty()) {
-            auto [cost, node] = pq.top();
+        while (!pq.empty())
+        {
+            auto top = pq.top();
             pq.pop();
 
-            if (cost > dist[node]) continue;
-            if (node == n - 1) return (int)cost;
+            long long cost = top.first;
+            int node = top.second;
 
-            for (auto &[next, w] : adj[node]) {
-                if (dist[next] > cost + w) {
+            if (cost > dist[node])
+                continue;
+            if (node == n - 1)
+                return (int)cost;
+
+            for (auto &edge : adj[node])
+            {
+                int next = edge.first;
+                long long w = edge.second;
+
+                if (dist[next] > cost + w)
+                {
                     dist[next] = cost + w;
                     pq.push({dist[next], next});
                 }
